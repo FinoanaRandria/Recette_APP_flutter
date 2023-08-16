@@ -5,6 +5,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  
+
+   MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+
   Widget titleSection = Container(
     margin: const EdgeInsets.all(8),
     child: Row(
@@ -35,11 +43,24 @@ class MyApp extends StatelessWidget {
     ),
   );
 
-   MyApp({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
+  Widget buttonSection = Container(
+                 padding: EdgeInsets.all(8),
+                child:Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildBottomColmun(Colors.blue,Icons.comment_bank, "Comment"),
+                    _buildBottomColmun(Colors.black,Icons.share, "Share")
+                  ],
+              ),
+              );
+
+  Widget descriptionSection = Container(
+       padding: EdgeInsets.all(32),
+      child: Text("Faire cuire la pizza dans le four a 500 degre puis rajouter \n les element  suivants comme la tomate en conservee pouis les   \n legume pouis le fromeage, pour finir  ajouer les sardines"
+      , softWrap: true,),
+  );
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -75,8 +96,34 @@ class MyApp extends StatelessWidget {
             ),
           ),
           body: Column(
-            children: [titleSection],
+            children: [
+              
+              titleSection,
+              buttonSection,
+              descriptionSection
+              
+              ],
           )),
     );
   }
+
+
+ Column _buildBottomColmun( Color color, IconData icon,String lablel){
+    return Column(
+       mainAxisAlignment: MainAxisAlignment.center, //centrer les elements
+      children: [
+             Container(
+              padding: const EdgeInsets.only(bottom: 8),
+              child:Icon(icon, color: color),
+             ),
+            
+            Text(lablel, style: TextStyle(
+               fontSize: 14,
+               fontWeight: FontWeight.w400,
+               color: color
+            ),)
+              
+    ],);
+ }
+
 }
