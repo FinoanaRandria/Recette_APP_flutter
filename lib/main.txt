@@ -1,6 +1,3 @@
-import 'dart:html';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -128,10 +125,9 @@ Bonne dégustation ! 🍕
              //ListView pour scroller 
             children: [
  //            
-              CachedNetworkImage(
-               placeholder: (context,Uri)=>Center(child:CircularProgressIndicator()),
-               errorWidget: (context,Url,error)=>Icon(Icons.error), //premiere couche de l images
-               imageUrl:'https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+              FadeInImage.assetNetwork(
+               placeholder: 'images/loader.gif', //premiere couche de l images
+               image:'https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
                width: 600,
                height: 240,
                fit: BoxFit.cover,
